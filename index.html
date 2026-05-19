@@ -1,103 +1,146 @@
-"use client";
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سوقنا - Souqna | أفضل سوق إلكتروني للبائعين</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Cairo', sans-serif; }
+        body { background: #041C3A; color: white; }
+        .gold-text { color: #D4AF37; }
+        .gold-border { border-color: #D4AF37; }
+        .gold-bg { background: #D4AF37; color: #041C3A; }
+        .card-bg { background: #06264D; }
+        .header-bg { background: #02152d; }
+        .hover-gold:hover { background: rgba(212, 175, 55, 0.1); color: #D4AF37; }
+    </style>
+</head>
+<body>
 
-import { useState } from "react";
-
-export default function Home() {
-  // قائمة الأقسام
-  const categories = [
-    { icon: "📱", name: "الإلكترونيات", href: "/category/electronics" },
-    { icon: "👗", name: "الأزياء والموضة", href: "/category/fashion" },
-    { icon: "💄", name: "الجمال والعناية", href: "/category/beauty" },
-    { icon: "🚗", name: "السيارات", href: "/category/automotive" },
-    { icon: "🏠", name: "البيت والمطبخ", href: "/category/home" },
-    { icon: "👶", name: "الأم والطفل", href: "/category/baby" },
-    { icon: "🛒", name: "السوبر ماركت", href: "/category/grocery" },
-    { icon: "📚", name: "الكتب", href: "/category/books" },
-    { icon: "🐾", name: "الحيوانات الأليفة", href: "/category/pets" },
-  ];
-
-  // قائمة المنتجات
-  const products = [
-    { id: 1, name: "سماعات لاسلكية", price: 249, rating: 4.7, image: "https://picsum.photos/300/300?random=1" },
-    { id: 2, name: "ساعة ذكية", price: 599, rating: 4.8, image: "https://picsum.photos/300/300?random=2" },
-    { id: 3, name: "حقيبة جلدية", price: 320, rating: 4.5, image: "https://picsum.photos/300/300?random=3" },
-    { id: 4, name: "نظارة شمسية", price: 180, rating: 4.3, image: "https://picsum.photos/300/300?random=4" },
-    { id: 5, name: "خلاط كهربائي", price: 215, rating: 4.4, image: "https://picsum.photos/300/300?random=5" },
-    { id: 6, name: "كاميرا مراقبة", price: 429, rating: 4.7, image: "https://picsum.photos/300/300?random=6" },
-  ];
-
-  return (
-    <div className="min-h-screen" style={{ background: "#041C3A" }}>
-      {/* باقي الكود كما هو (الهيدر، Hero، الفوتر) */}
-      {/* ... */}
-
-      {/* قسم المنتجات - الجزء المصحح */}
-      <section className="order-1 lg:order-2">
-        <div className="mb-4 flex items-end justify-between">
-          <h2 className="text-xl font-black md:text-2xl">
-            <span className="text-[#D4AF37]">●</span> منتجات مختارة
-          </h2>
-          <span className="text-xs text-white/50">{products.length} منتج</span>
+    <!-- الهيدر -->
+    <header class="header-bg sticky top-0 z-50 border-b-2 gold-border">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between gap-4 flex-wrap">
+            <div class="flex items-center gap-2">
+                <div class="gold-bg w-10 h-10 rounded-lg flex items-center justify-center text-xl font-bold">س</div>
+                <div>
+                    <div class="gold-text text-xl font-black">سوقنا</div>
+                    <div class="text-[10px] text-white/50 tracking-wider">SOUQNA</div>
+                </div>
+            </div>
+            <div class="flex-1 max-w-xl">
+                <input type="text" placeholder="ابحث عن منتجات، ماركات وأكثر..." class="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:gold-border">
+            </div>
+            <div class="flex gap-2">
+                <a href="#" class="border gold-border text-white px-4 py-2 rounded-md text-sm hover:bg-white/10">دخول</a>
+                <a href="#" class="gold-bg px-4 py-2 rounded-md text-sm font-bold">حساب جديد</a>
+            </div>
         </div>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 md:grid-cols-3 md:gap-4">
-          {products.map((product) => (
-            <article
-              key={product.id}
-              className="group flex flex-col overflow-hidden rounded-xl shadow-sm ring-1 ring-white/10 transition hover:-translate-y-1 hover:shadow-xl hover:ring-[#D4AF37]/40"
-              style={{ background: "#06264D" }}
-            >
-              <div className="relative aspect-square overflow-hidden bg-white/10">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="flex flex-1 flex-col gap-2 p-3">
-                <h3 className="line-clamp-2 min-h-[2.5rem] text-sm font-semibold leading-tight">
-                  {product.name}
-                </h3>
-                <div className="flex items-center gap-0.5">
-                  <span className="text-[#D4AF37]">★★★★★</span>
-                  <span className="ms-1 text-xs text-white/50">{product.rating}</span>
-                </div>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-lg font-bold text-[#D4AF37]">{product.price} ر.س</span>
-                </div>
-                <div className="mt-auto grid grid-cols-2 gap-1.5 pt-2">
-                  <button className="rounded-md bg-[#D4AF37] px-2 py-2 text-xs font-bold transition hover:opacity-90" style={{ color: "#041C3A" }}>
-                    🛒 شراء
-                  </button>
-                  <button className="rounded-md border border-[#D4AF37]/40 bg-white/10 px-2 py-2 text-xs font-bold text-white transition hover:bg-[#D4AF37]/10">
-                    💬 استعلام
-                  </button>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+    </header>
 
-      {/* قائمة الأقسام - الجزء المصحح */}
-      <div className="order-2 lg:order-1">
-        <aside className="rounded-xl p-4 ring-1 ring-white/10" style={{ background: "#06264D" }}>
-          <h3 className="mb-3 flex items-center gap-2 border-b border-[#D4AF37]/30 pb-2 text-sm font-bold text-[#D4AF37]">
-            <span>📂</span> الأقسام
-          </h3>
-          <nav className="flex flex-col gap-1.5">
-            {categories.map((cat) => (
-              <a
-                key={cat.name}
-                href={cat.href}
-                className="group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200 hover:bg-[#D4AF37]/10 hover:text-[#D4AF37] text-white"
-              >
-                <span className="text-xl">{cat.icon}</span>
-                <span>{cat.name}</span>
-              </a>
-            ))}
-          </nav>
+    <!-- Hero -->
+    <section class="py-16 text-center border-b gold-border/30" style="background: linear-gradient(135deg, #02152d, #041C3A);">
+        <div class="container mx-auto px-4">
+            <span class="gold-text bg-gold/10 px-4 py-1 rounded-full text-xs inline-block mb-4">منصة البائعين الأولى</span>
+            <h1 class="text-4xl md:text-5xl font-black">أفضل سوق إلكتروني <span class="gold-text">للبائعين</span></h1>
+            <p class="text-white/70 text-lg mt-4 max-w-2xl mx-auto">اعرض منتجاتك وابدأ البيع بسهولة. آلاف المشترين بانتظار عروضك.</p>
+            <div class="flex gap-4 justify-center mt-8">
+                <button class="gold-bg px-6 py-3 rounded-lg font-bold">ابدأ البيع الآن</button>
+                <button class="border gold-border text-white px-6 py-3 rounded-lg font-bold hover:bg-white/10">تصفح المنتجات</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- المحتوى الرئيسي: 3 أعمدة -->
+    <div class="container mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-[250px_1fr_250px] gap-6">
+        
+        <!-- العمود الأيمن: الأقسام -->
+        <aside class="card-bg p-4 rounded-xl">
+            <h3 class="gold-text border-b gold-border/30 pb-2 mb-3 flex items-center gap-2"><span>📂</span> الأقسام</h3>
+            <ul class="space-y-2">
+                <li><a href="#" class="flex items-center gap-3 p-2 rounded-lg hover-gold transition"><span class="text-xl">📱</span> الإلكترونيات</a></li>
+                <li><a href="#" class="flex items-center gap-3 p-2 rounded-lg hover-gold transition"><span class="text-xl">👗</span> الأزياء والموضة</a></li>
+                <li><a href="#" class="flex items-center gap-3 p-2 rounded-lg hover-gold transition"><span class="text-xl">💄</span> الجمال والعناية</a></li>
+                <li><a href="#" class="flex items-center gap-3 p-2 rounded-lg hover-gold transition"><span class="text-xl">🚗</span> السيارات وقطع الغيار</a></li>
+                <li><a href="#" class="flex items-center gap-3 p-2 rounded-lg hover-gold transition"><span class="text-xl">🏠</span> البيت والمطبخ</a></li>
+                <li><a href="#" class="flex items-center gap-3 p-2 rounded-lg hover-gold transition"><span class="text-xl">👶</span> الأم والطفل</a></li>
+                <li><a href="#" class="flex items-center gap-3 p-2 rounded-lg hover-gold transition"><span class="text-xl">🛒</span> السوبر ماركت</a></li>
+                <li><a href="#" class="flex items-center gap-3 p-2 rounded-lg hover-gold transition"><span class="text-xl">📚</span> الكتب والقرطاسية</a></li>
+                <li><a href="#" class="flex items-center gap-3 p-2 rounded-lg hover-gold transition"><span class="text-xl">🐾</span> الحيوانات الأليفة</a></li>
+            </ul>
         </aside>
-      </div>
+
+        <!-- العمود الأوسط: المنتجات -->
+        <main>
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-black"><span class="gold-text">●</span> منتجات مختارة</h2>
+                <span class="text-white/50 text-sm">12 منتج</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- بطاقة منتج 1 -->
+                <div class="card-bg rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                    <img src="https://picsum.photos/id/1/300/200" class="w-full h-48 object-cover">
+                    <div class="p-3">
+                        <h3 class="font-bold text-lg">سماعات لاسلكية</h3>
+                        <div class="gold-text text-sm">★★★★★ 4.8</div>
+                        <div class="gold-text text-xl font-bold mt-2">249 ر.س</div>
+                        <div class="flex gap-2 mt-3">
+                            <button class="gold-bg flex-1 py-2 rounded-md text-sm font-bold">شراء</button>
+                            <button class="border gold-border text-white flex-1 py-2 rounded-md text-sm hover:bg-white/10">استعلام</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- بطاقة منتج 2 -->
+                <div class="card-bg rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                    <img src="https://picsum.photos/id/20/300/200" class="w-full h-48 object-cover">
+                    <div class="p-3">
+                        <h3 class="font-bold text-lg">ساعة ذكية AMOLED</h3>
+                        <div class="gold-text text-sm">★★★★★ 4.9</div>
+                        <div class="gold-text text-xl font-bold mt-2">599 ر.س</div>
+                        <div class="flex gap-2 mt-3">
+                            <button class="gold-bg flex-1 py-2 rounded-md text-sm font-bold">شراء</button>
+                            <button class="border gold-border text-white flex-1 py-2 rounded-md text-sm hover:bg-white/10">استعلام</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- بطاقة منتج 3 -->
+                <div class="card-bg rounded-xl overflow-hidden shadow-lg transition hover:scale-105">
+                    <img src="https://picsum.photos/id/30/300/200" class="w-full h-48 object-cover">
+                    <div class="p-3">
+                        <h3 class="font-bold text-lg">حقيبة جلدية فاخرة</h3>
+                        <div class="gold-text text-sm">★★★★★ 4.7</div>
+                        <div class="gold-text text-xl font-bold mt-2">320 ر.س</div>
+                        <div class="flex gap-2 mt-3">
+                            <button class="gold-bg flex-1 py-2 rounded-md text-sm font-bold">شراء</button>
+                            <button class="border gold-border text-white flex-1 py-2 rounded-md text-sm hover:bg-white/10">استعلام</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- أضف المزيد من البطاقات حسب الرغبة -->
+            </div>
+        </main>
+
+        <!-- العمود الأيسر: قوائم مميزة -->
+        <aside class="card-bg p-4 rounded-xl">
+            <h3 class="gold-text border-b gold-border/30 pb-2 mb-3 flex items-center gap-2"><span>⚡</span> قوائم مميزة</h3>
+            <ul class="space-y-2">
+                <li><a href="#" class="flex items-center gap-3 p-2 rounded-lg hover-gold transition"><span class="text-xl">🔥</span> الأكثر مبيعاً</a></li>
+                <li><a href="#" class="flex items-center gap-3 p-2 rounded-lg hover-gold transition"><span class="text-xl">💰</span> عروض وخصومات</a></li>
+                <li><a href="#" class="flex items-center gap-3 p-2 rounded-lg hover-gold transition"><span class="text-xl">✨</span> وصل حديثاً</a></li>
+                <li><a href="#" class="flex items-center gap-3 p-2 rounded-lg hover-gold transition"><span class="text-xl">📦</span> تصفية المخزون</a></li>
+                <li><a href="#" class="flex items-center gap-3 p-2 rounded-lg hover-gold transition"><span class="text-xl">⭐</span> مميز / مختار لك</a></li>
+            </ul>
+        </aside>
     </div>
-  );
-}
+
+    <!-- زر إضافة منتج ثابت -->
+    <button class="fixed bottom-6 right-6 gold-bg px-5 py-3 rounded-full shadow-lg flex items-center gap-2 font-bold z-50 hover:scale-105 transition">➕ إضافة منتج</button>
+
+    <!-- فوتر -->
+    <footer class="header-bg border-t-2 gold-border text-center py-6 text-white/50 mt-8">
+        جميع الحقوق محفوظة © <span class="gold-text">Souqna</span>
+    </footer>
+
+</body>
+</html>
