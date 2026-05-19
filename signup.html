@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب - سوقنا Souqna</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Cairo', sans-serif; }
+        body { background: #041C3A; color: white; }
+        .gold-text { color: #D4AF37; }
+        .gold-border { border-color: #D4AF37; }
+        .gold-bg { background: #D4AF37; color: #041C3A; }
+        .card-bg { background: #06264D; }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <div class="flex-grow flex items-center justify-center p-4">
+        <div class="card-bg rounded-2xl shadow-2xl w-full max-w-md p-8">
+            <div class="flex justify-between items-center mb-6">
+                <a href="/" class="gold-text text-2xl">&rarr;</a>
+                <h2 class="gold-text text-2xl font-bold">إنشاء حساب جديد</h2>
+                <div class="w-6"></div>
+            </div>
+            <form>
+                <div class="mb-3">
+                    <input type="text" placeholder="الاسم الكامل" class="w-full p-3 rounded-lg bg-transparent border gold-border text-white placeholder-white/50 focus:outline-none">
+                </div>
+                <div class="mb-3">
+                    <input type="email" placeholder="البريد الإلكتروني" class="w-full p-3 rounded-lg bg-transparent border gold-border text-white placeholder-white/50 focus:outline-none">
+                </div>
+                <div class="mb-3">
+                    <input type="password" placeholder="كلمة المرور" class="w-full p-3 rounded-lg bg-transparent border gold-border text-white placeholder-white/50 focus:outline-none">
+                </div>
+                <div class="mb-3">
+                    <input type="password" placeholder="تأكيد كلمة المرور" class="w-full p-3 rounded-lg bg-transparent border gold-border text-white placeholder-white/50 focus:outline-none">
+                </div>
+                <div class="mb-6">
+                    <select class="w-full p-3 rounded-lg bg-transparent border gold-border text-white focus:outline-none">
+                        <option value="" disabled selected>نوع الحساب</option>
+                        <option value="buyer" class="text-black">مشتري</option>
+                        <option value="seller" class="text-black">بائع</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full gold-bg py-3 rounded-lg font-bold text-lg transition hover:opacity-90">إنشاء حساب</button>
+                <p class="text-center text-white/70 mt-4">
+                    لديك حساب بالفعل؟ <a href="login.html" class="gold-text font-bold">تسجيل الدخول</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    <footer class="text-center text-white/50 py-4 text-sm border-t gold-border/30 mt-8">
+        جميع الحقوق محفوظة © <span class="gold-text">Souqna</span>
+    </footer>
+</body>
+</html>
